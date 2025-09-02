@@ -1,4 +1,5 @@
 ﻿using LeituraAcompanhada.Entities;
+using LeituraAcompanhada.Entities.Enums;
 using System.Text.Json;
 
 namespace LeituraAcompanhada.Repositories
@@ -7,7 +8,7 @@ namespace LeituraAcompanhada.Repositories
     {
         private static string _caminhoArquivo = "livros.json";
 
-        public static void Adicionar(List<Livro> livro)
+        public static void Salvar(List<Livro> livro)
         {
             try
             {
@@ -15,7 +16,7 @@ namespace LeituraAcompanhada.Repositories
                 string json = JsonSerializer.Serialize(livro, options);
                 File.WriteAllText(_caminhoArquivo, json);
             }
-            catch(JsonException e)
+            catch (JsonException e)
             {
                 throw new Exception("Erro na serialização do JSON: " + e.Message);
             }

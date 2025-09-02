@@ -12,6 +12,13 @@ namespace LeituraAcompanhada.Entities
 
         public Leitura() { }
 
+        public Leitura(DateTime dataInicio, DateTime dataTermino, Status status, int id)
+        {
+            DataInicio = dataInicio;
+            DataTermino = dataTermino;
+            Status = status;
+            Id = id;
+        }
 
         public Leitura(DateTime dataInicio, DateTime dataTermino, Status status, int id, int livroId)
         {
@@ -21,8 +28,5 @@ namespace LeituraAcompanhada.Entities
             Id = id;
             LivroId = livroId;
         }
-
-
-
     }
 }
