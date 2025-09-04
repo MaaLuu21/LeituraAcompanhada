@@ -1,4 +1,5 @@
 ﻿using LeituraAcompanhada.Entities.Enums;
+using System.Text;
 
 namespace LeituraAcompanhada.Entities
 {
@@ -23,12 +24,28 @@ namespace LeituraAcompanhada.Entities
 
         public override string ToString()
         {
-            return "Data de início: "
-                + DataInicio
-                + "\nData de término: "
-                + DataTermino
-                + "\nStatus: "
-                + Status;
+            StringBuilder sb = new StringBuilder();
+            int tamanho = 35;
+
+            sb.AppendLine(new String( '-', tamanho));
+
+            if(DataInicio.HasValue)
+            {
+                sb.AppendLine("Data de início: " + DataInicio.Value.Date.ToShortDateString());
+            }
+            if (DataTermino.HasValue)
+            {
+                sb.AppendLine("Data de término: " + DataTermino.Value.Date.ToShortDateString());
+            }
+
+            sb.AppendLine("Status: " + Status);
+
+            sb.AppendLine("ID: " + Id);
+
+            sb.AppendLine(new String('-', tamanho));
+
+            return sb.ToString();
+
         }
     }
 }

@@ -1,8 +1,9 @@
 ﻿using LeituraAcompanhada.Repositories;
 using LeituraAcompanhada.Services;
+using LeituraAcompanhada.View.Livros;
 using LeituraAcompanhada.View.Utils;
 
-namespace LeituraAcompanhada.View
+namespace LeituraAcompanhada.View.Leituras
 {
     class InserirLeituraView
     {
@@ -14,11 +15,18 @@ namespace LeituraAcompanhada.View
                 return; // sai do método se não houver livros
             }
 
-            int id = EntradaUtils.LerInteiro("Insira o ID do livro que deseja inserir leitura: ");
+            Console.Write("\n\nInsira o ID do livro que deseja inserir leitura: ");
+            //checa se é inteiro
+            if(!int.TryParse(Console.ReadLine(), out int id))
+            {
+                ConsoleUtils.MostrarErro("Entrada inválida");
+                return;
+            }
 
             //chama o metodo que adicona a leitura
             string mensagem = LeituraService.AdicionarLeitura(id);
 
+            //Mostra se foi adicionado com sucesso ou não
             if (mensagem.Contains("sucesso", StringComparison.OrdinalIgnoreCase))
             {
                 ConsoleUtils.MostrarSucesso(mensagem);

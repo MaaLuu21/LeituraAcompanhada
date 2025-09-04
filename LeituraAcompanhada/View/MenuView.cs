@@ -2,6 +2,8 @@
 using LeituraAcompanhada.Entities.Enums;
 using LeituraAcompanhada.Exceptions;
 using LeituraAcompanhada.Repositories;
+using LeituraAcompanhada.View.Leituras;
+using LeituraAcompanhada.View.Livros;
 using LeituraAcompanhada.View.Utils;
 using System;
 using System.Collections.Generic;
@@ -30,10 +32,11 @@ namespace LeituraAcompanhada.View
                     Console.WriteLine(" -------------------------------------------");
                     Console.WriteLine("|            LEITURA ACOMPANHADA            |");
                     Console.WriteLine(" -------------------------------------------");
-                    Console.WriteLine("|Inserir livro        -     [0]             |");
-                    Console.WriteLine("|Inserir leitura      -     [1]             |");
-                    Console.WriteLine("|Lista de livros      -     [2]             |");
-                    Console.WriteLine("|Atualizar Leitura    -     [3]             |");
+                    Console.WriteLine("|Inserir livro           -     [0]          |");
+                    Console.WriteLine("|Inserir leitura         -     [1]          |");
+                    Console.WriteLine("|Lista de livros         -     [2]          |");
+                    Console.WriteLine("|Historico de leituras   -     [3]          |");
+                    Console.WriteLine("|Atualizar Leitura       -     [4]          |");
                     Console.WriteLine(" -------------------------------------------");
                     string entrada = Console.ReadLine()?.Trim();//checa se a entrada não for nula e tira espaço em branco se tiver no final
                     
@@ -69,15 +72,26 @@ namespace LeituraAcompanhada.View
 
                         case Opcoes.ListaLivros:
                             Console.Clear();
-                            ListaLivrosView.ListaLivros();
+                            ExibirLivrosView.ExibirLivros();
+                            Console.WriteLine("\nAperte qualquer tecla para voltar...");
+                            Console.ReadKey();
 
                             break;
 
+                        case Opcoes.ListaLeitura:
+                            Console.Clear();
+
+                            ExibirLeiturasView.ExibirLeituras();
+
+                            break;
 
                         case Opcoes.AtualizarStatus:
+                            Console.Clear();
+                            AtualizarStatusView.AtualizarStatus();
 
-                            
+
                             break;
+
                         default:
                             break;
                     }
@@ -90,7 +104,7 @@ namespace LeituraAcompanhada.View
             }
             catch (Exception e)
             {
-                ConsoleUtils.MostrarErro("Erro inesperado");
+                ConsoleUtils.MostrarErro("Erro inesperado" + e.Message);
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿using LeituraAcompanhada.Entities;
 using LeituraAcompanhada.Entities.Enums;
-using LeituraAcompanhada.View;
+using LeituraAcompanhada.View.Leituras;
 using LeituraAcompanhada.View.Utils;
 using System;
 using System.Collections.Generic;
@@ -41,7 +41,6 @@ namespace LeituraAcompanhada.Repositories
             LivroRepository.Salvar(livros);
 
             return true;
-
         }
 
         public static bool AtualizarStatus(int livroId, int leituraId, Status novoStatus)

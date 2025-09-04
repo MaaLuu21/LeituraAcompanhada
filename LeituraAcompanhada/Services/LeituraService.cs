@@ -36,7 +36,6 @@ namespace LeituraAcompanhada.Services
             {
                 return "Livro ou leitura não encontrados";
             }
-
         }
     }
 }

@@ -4,25 +4,28 @@
     {
         public string Titulo { get; set; }
         public string Autor { get; set; }
+        public string Genero { get; set; }
         public int Id { get; set; }
         public List<Leitura> Leituras { get; set; }
 
         public Livro() { }
 
-        public Livro(string titulo, string autor, int id)
+        public Livro(string titulo, string autor, string genero, int id)
         {
             Titulo = titulo;
             Autor = autor;
+            Genero = genero;
             Id = id;
             Leituras = new List<Leitura>();
         }
 
-        public Livro(string titulo, string autor, int id, List<Leitura> leituras)
+        public Livro(string titulo, string autor, string genero, int id, List<Leitura> leituras)
         {
             Titulo = titulo;
             Autor = autor;
+            Genero = genero;
             Id = id;
-            Leituras = leituras;
+            Leituras = leituras ?? new List<Leitura>();
         }
     }
 }

@@ -2,7 +2,7 @@
 using LeituraAcompanhada.View.Utils;
 
 
-namespace LeituraAcompanhada.View
+namespace LeituraAcompanhada.View.Livros
 {
     class ExibirLivrosView
     {
@@ -17,8 +17,9 @@ namespace LeituraAcompanhada.View
 
             foreach (var livro in livros)
             {
-                Console.WriteLine($"ID: {livro.Id} - Título: {livro.Titulo}");
+                Console.WriteLine($"ID: {livro.Id} - Título: {livro.Titulo} - Gênero: {livro.Genero}");
             }
+
             return true;
         }
     }

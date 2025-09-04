@@ -11,6 +11,7 @@ namespace LeituraAcompanhada.Entities
     {
         public string Autor { get; set; }
         public string Titulo { get; set; }
+        public string Genero { get; set; }
         public Status? Status { get; set; }//checa nulo
     }
 }

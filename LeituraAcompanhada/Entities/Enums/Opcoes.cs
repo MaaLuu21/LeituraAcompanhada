@@ -5,6 +5,7 @@
         InserirLivro,
         InserirLeitura,
         ListaLivros,
+        ListaLeitura,
         AtualizarStatus,
     }
 }

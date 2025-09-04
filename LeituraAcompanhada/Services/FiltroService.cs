@@ -24,6 +24,10 @@ namespace LeituraAcompanhada.Services
             {
                 query = query.Where(l => l.Autor.IndexOf(filtro.Autor, StringComparison.OrdinalIgnoreCase) >= 0);
             }
+            if (!string.IsNullOrEmpty(filtro.Genero))
+            {
+                query = query.Where(l => l.Genero.IndexOf(filtro.Genero, StringComparison.OrdinalIgnoreCase) >= 0);
+            }
             if (filtro.Status.HasValue)
             {
                 query = query.Where(l => l.Leituras.Any(le => le.Status == filtro.Status));

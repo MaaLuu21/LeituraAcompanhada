@@ -8,6 +8,7 @@ namespace LeituraAcompanhada.View.Utils
 {
     class ConsoleUtils
     {
+        //metodo utilitario para exibir erros ou secusso
         public static void MostrarErro(string mensagem)
         {
             Console.Clear();
