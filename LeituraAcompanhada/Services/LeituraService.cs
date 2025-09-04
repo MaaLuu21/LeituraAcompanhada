@@ -15,15 +15,13 @@ namespace LeituraAcompanhada.Services
         {
             bool result = LeituraRepository.AdicinarLeitura(livroId);
 
-
-
             if (result)
             {
                 return "Leitura adicionada com sucesso";
             }
             else
             {
-                return "Livro não encontrado";
+                return "Livro não encontrado ou está sendo lido no momento";
             }
         }
         public static string AtualizarStatus(int livroId, int leituraId, Status novoStatus)

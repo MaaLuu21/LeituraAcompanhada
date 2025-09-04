@@ -4,6 +4,7 @@
     {
         InserirLivro,
         InserirLeitura,
+        ListaLivros,
         AtualizarStatus,
     }
 }

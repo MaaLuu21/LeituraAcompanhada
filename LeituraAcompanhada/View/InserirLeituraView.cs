@@ -1,11 +1,6 @@
 ﻿using LeituraAcompanhada.Repositories;
 using LeituraAcompanhada.Services;
 using LeituraAcompanhada.View.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LeituraAcompanhada.View
 {
@@ -13,7 +8,6 @@ namespace LeituraAcompanhada.View
     {
         public static void InserirLeitura()
         {
-            ExibirLivrosView.ExibirLivros();
 
             if (!ExibirLivrosView.ExibirLivros())
             {
@@ -22,7 +16,7 @@ namespace LeituraAcompanhada.View
 
             int id = EntradaUtils.LerInteiro("Insira o ID do livro que deseja inserir leitura: ");
 
-            
+            //chama o metodo que adicona a leitura
             string mensagem = LeituraService.AdicionarLeitura(id);
 
             if (mensagem.Contains("sucesso", StringComparison.OrdinalIgnoreCase))

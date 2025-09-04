@@ -1,7 +1,4 @@
-﻿using LeituraAcompanhada.Entities.Enums;
-using System;
-
-namespace LeituraAcompanhada.View.Utils
+﻿namespace LeituraAcompanhada.View.Utils
 {
     public static class EntradaUtils
     {
@@ -64,6 +61,15 @@ namespace LeituraAcompanhada.View.Utils
             return LerEntrada(mensagem, entrada =>
             {
                 var valido = double.TryParse(entrada, out var valor);
+                return (valido, valor);
+            });
+        }
+
+        public static double LerChar(string mensagem)
+        {
+            return LerEntrada(mensagem, entrada =>
+            {
+                var valido = char.TryParse(entrada, out var valor);
                 return (valido, valor);
             });
         }

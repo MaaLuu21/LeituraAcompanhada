@@ -25,13 +25,15 @@ namespace LeituraAcompanhada.View
 
                 while (true)
                 {
+                    Console.Clear();
                     //menu simples de console
                     Console.WriteLine(" -------------------------------------------");
                     Console.WriteLine("|            LEITURA ACOMPANHADA            |");
                     Console.WriteLine(" -------------------------------------------");
-                    Console.WriteLine("|Inserir livro      -     [0]               |");
-                    Console.WriteLine("|Inserir leitura    -     [1]               |");
-                    Console.WriteLine("|Atualizar Status   -     [2]               |");
+                    Console.WriteLine("|Inserir livro        -     [0]             |");
+                    Console.WriteLine("|Inserir leitura      -     [1]             |");
+                    Console.WriteLine("|Lista de livros      -     [2]             |");
+                    Console.WriteLine("|Atualizar Leitura    -     [3]             |");
                     Console.WriteLine(" -------------------------------------------");
                     string entrada = Console.ReadLine()?.Trim();//checa se a entrada não for nula e tira espaço em branco se tiver no final
                     
@@ -64,7 +66,16 @@ namespace LeituraAcompanhada.View
                             InserirLeituraView.InserirLeitura();
 
                             break;
+
+                        case Opcoes.ListaLivros:
+                            Console.Clear();
+                            ListaLivrosView.ListaLivros();
+
+                            break;
+
+
                         case Opcoes.AtualizarStatus:
+
                             
                             break;
                         default:

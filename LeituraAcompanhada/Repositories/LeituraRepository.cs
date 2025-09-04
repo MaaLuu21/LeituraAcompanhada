@@ -5,6 +5,7 @@ using LeituraAcompanhada.View.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,7 +23,7 @@ namespace LeituraAcompanhada.Repositories
             }
 
             // encontra o livro pelo ID
-            var livroParaAtualizar = livros.FirstOrDefault(l => l.Id == livroId);
+            var livroParaAtualizar = livros.FirstOrDefault(l => l.Id == livroId && l.Leituras.All(leitura => leitura.Status != Status.Lendo));
 
             if (livroParaAtualizar == null)
             {
@@ -30,7 +31,7 @@ namespace LeituraAcompanhada.Repositories
             }
 
             //Coleta os dados da leitura
-            Leitura novaLeitura = AdiconarLeituraView.AdicionarLeitura();
+            Leitura novaLeitura = AdicinarLeituraView.AdicionarLeitura();
 
             //Define o livroID na nova leitura
             novaLeitura.LivroId = livroId;
