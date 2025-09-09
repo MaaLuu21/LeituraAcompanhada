@@ -37,7 +37,7 @@ namespace LeituraAcompanhada.View
                     Console.WriteLine("|Sair                    -     [6]          |");
                     Console.WriteLine(" -------------------------------------------");
                     string entrada = Console.ReadLine()?.Trim();//checa se a entrada não for nula e tira espaço em branco se tiver no final
-                    
+
                     //checa se a entrada condiz com as opcoes do enum
                     parseOk = Enum.TryParse(entrada, out opcoes) && Enum.IsDefined(typeof(OpcoesMenu), opcoes);
 
@@ -87,7 +87,6 @@ namespace LeituraAcompanhada.View
                             Console.Clear();
                             AtualizarStatusView.AtualizarStatus();
 
-
                             break;
 
                         case OpcoesMenu.FiltroDeBusca:
@@ -95,13 +94,12 @@ namespace LeituraAcompanhada.View
 
                             FiltroView.Filtro();
 
-
                             break;
 
                         case OpcoesMenu.Sair:
                             Console.Clear();
 
-                            break;
+                            return;
 
                         default:
                             break;
@@ -111,7 +109,7 @@ namespace LeituraAcompanhada.View
             catch (DomainException e)
             {
                 ConsoleUtils.MostrarErro(e.Message);
-                
+
             }
             catch (Exception e)
             {

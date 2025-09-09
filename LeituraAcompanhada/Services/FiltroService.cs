@@ -16,7 +16,7 @@ namespace LeituraAcompanhada.Services
             var livros = LivroRepository.Carregar();
             var query = livros.AsEnumerable();
 
-            if (!string.IsNullOrEmpty(filtro.Titulo)) 
+            if (!string.IsNullOrEmpty(filtro.Titulo) ) 
             {
                 query = query.Where(l => l.Titulo.IndexOf(filtro.Titulo, StringComparison.OrdinalIgnoreCase) >= 0);
             }
@@ -27,10 +27,6 @@ namespace LeituraAcompanhada.Services
             if (!string.IsNullOrEmpty(filtro.Genero))
             {
                 query = query.Where(l => l.Genero.IndexOf(filtro.Genero, StringComparison.OrdinalIgnoreCase) >= 0);
-            }
-            if (filtro.Status.HasValue)
-            {
-                query = query.Where(l => l.Leituras.Any(le => le.Status == filtro.Status));
             }
 
             return query.ToList();

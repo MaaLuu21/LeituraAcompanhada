@@ -43,7 +43,7 @@ namespace LeituraAcompanhada.Repositories
             return true;
         }
 
-        public static bool AtualizarStatus(int livroId, int leituraId, Status novoStatus)
+        public static bool AtualizarStatus(int livroId, int leituraId, Status novoStatus, DateTime dataTermino)
         {
             //carrega todos os livros
             var livros = LivroRepository.Carregar();
@@ -60,7 +60,7 @@ namespace LeituraAcompanhada.Repositories
                 if (leituraExistente != null)
                 {
                     leituraExistente.Status = novoStatus;//Atualiza
-
+                    leituraExistente.DataTermino = dataTermino;
                     LivroRepository.Salvar(livros);//Salva
                     return true;
                 }

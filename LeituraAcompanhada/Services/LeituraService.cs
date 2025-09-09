@@ -1,11 +1,6 @@
 ﻿using LeituraAcompanhada.Entities;
 using LeituraAcompanhada.Entities.Enums;
 using LeituraAcompanhada.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LeituraAcompanhada.Services
 {
@@ -24,9 +19,9 @@ namespace LeituraAcompanhada.Services
                 return "Livro não encontrado ou está sendo lido no momento";
             }
         }
-        public static string AtualizarStatus(int livroId, int leituraId, Status novoStatus)
+        public static string AtualizarStatus(int livroId, int leituraId, Status novoStatus, DateTime dataTermino)
         {
-            bool result = LeituraRepository.AtualizarStatus(livroId, leituraId, novoStatus);
+            bool result = LeituraRepository.AtualizarStatus(livroId, leituraId, novoStatus, dataTermino);
 
             if (result)
             {

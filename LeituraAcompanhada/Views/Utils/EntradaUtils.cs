@@ -37,7 +37,6 @@
                 return (!string.IsNullOrWhiteSpace(entrada), entrada);
             });
         }
-
         public static DateTime LerData(string mensagem)
         {
             return LerEntrada(mensagem, entrada =>

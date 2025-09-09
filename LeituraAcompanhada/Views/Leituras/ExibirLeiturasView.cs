@@ -30,6 +30,7 @@ namespace LeituraAcompanhada.View.Leituras
                 return false;
             }
 
+            Console.Clear();
             foreach (var leitura in leituras)
             {
                 Console.WriteLine(leitura);

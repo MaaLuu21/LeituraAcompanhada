@@ -67,11 +67,16 @@ namespace LeituraAcompanhada.View.Leituras
 
             Status novoStatus = Status.Concluido;
 
-            LeituraRepository.AtualizarStatus(livroId, leituraId, novoStatus);
+            DateTime dataTermino = DateTime.Now.Date;
 
-            string mensagem = LeituraService.AtualizarStatus(livroId, leituraId, novoStatus);
+            LeituraRepository.AtualizarStatus(livroId, leituraId, novoStatus, dataTermino);
+
+            string mensagem = LeituraService.AtualizarStatus(livroId, leituraId, novoStatus, dataTermino);
 
             //Mostra se foi adicionado com sucesso ou não
+
+            //dar uma melhorada aqui!!!!!!!!!!!!
+            //!!!!!!!!
             if (mensagem.Contains("sucesso", StringComparison.OrdinalIgnoreCase))
             {
                 ConsoleUtils.MostrarSucesso(mensagem);

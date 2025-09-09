@@ -1,16 +1,18 @@
-﻿namespace LeituraAcompanhada.Entities
+﻿using System.Text;
+
+namespace LeituraAcompanhada.Entities
 {
     class Livro
     {
-        public string Titulo { get; set; }
-        public string Autor { get; set; }
-        public string Genero { get; set; }
+        public string? Titulo { get; set; }
+        public string? Autor { get; set; }
+        public string? Genero { get; set; }
         public int Id { get; set; }
         public List<Leitura> Leituras { get; set; }
 
         public Livro() { }
 
-        public Livro(string titulo, string autor, string genero, int id)
+        public Livro(string? titulo, string? autor, string? genero, int id)
         {
             Titulo = titulo;
             Autor = autor;
@@ -19,7 +21,7 @@
             Leituras = new List<Leitura>();
         }
 
-        public Livro(string titulo, string autor, string genero, int id, List<Leitura> leituras)
+        public Livro(string? titulo, string? autor, string? genero, int id, List<Leitura> leituras)
         {
             Titulo = titulo;
             Autor = autor;
@@ -30,11 +32,19 @@
 
         public override string ToString()
         {
-            return Titulo 
-                + "\n"
-                + Autor
-                + "\n"
-                + Id;
+            StringBuilder sb = new StringBuilder();
+            int tamanho = 40;
+
+            sb.AppendLine(new string('-', tamanho));
+            sb.AppendLine("Titulo: " +  Titulo);
+            sb.AppendLine("Autor: " + Autor);
+            sb.AppendLine("Genero: " + Genero);
+            sb.AppendLine("ID: " + Id );
+            sb.AppendLine(new string('-', tamanho));
+
+
+            return sb.ToString();
+
         }
     }
 }

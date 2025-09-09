@@ -4,7 +4,6 @@
     {
         Titulo,
         Autor,
-        Genero,
-        Status
+        Genero
     }
 }
