@@ -1,11 +1,13 @@
 ﻿namespace LeituraAcompanhada.Entities.Enums
 {
-    enum Opcoes
+    enum OpcoesMenu
     {
         InserirLivro,
         InserirLeitura,
         ListaLivros,
-        ListaLeitura,
+        HistoricoLeituras,
         AtualizarStatus,
+        FiltroDeBusca,
+        Sair
     }
 }

@@ -35,5 +35,6 @@ namespace LeituraAcompanhada.Services
 
             return query.ToList();
         }
+
     }
 }

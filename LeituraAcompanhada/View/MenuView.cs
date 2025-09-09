@@ -2,15 +2,11 @@
 using LeituraAcompanhada.Entities.Enums;
 using LeituraAcompanhada.Exceptions;
 using LeituraAcompanhada.Repositories;
+using LeituraAcompanhada.View.Filtros;
 using LeituraAcompanhada.View.Leituras;
 using LeituraAcompanhada.View.Livros;
 using LeituraAcompanhada.View.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace LeituraAcompanhada.View
 {
@@ -19,7 +15,7 @@ namespace LeituraAcompanhada.View
         public static void Menu()
         {
             bool parseOk = false;
-            Opcoes opcoes;
+            OpcoesMenu opcoes;
             List<Livro> livros = LivroRepository.Carregar();
 
             try
@@ -37,11 +33,13 @@ namespace LeituraAcompanhada.View
                     Console.WriteLine("|Lista de livros         -     [2]          |");
                     Console.WriteLine("|Historico de leituras   -     [3]          |");
                     Console.WriteLine("|Atualizar Leitura       -     [4]          |");
+                    Console.WriteLine("|Filtro de busca         -     [5]          |");
+                    Console.WriteLine("|Sair                    -     [6]          |");
                     Console.WriteLine(" -------------------------------------------");
                     string entrada = Console.ReadLine()?.Trim();//checa se a entrada não for nula e tira espaço em branco se tiver no final
                     
                     //checa se a entrada condiz com as opcoes do enum
-                    parseOk = Enum.TryParse(entrada, out opcoes) && Enum.IsDefined(typeof(Opcoes), opcoes);
+                    parseOk = Enum.TryParse(entrada, out opcoes) && Enum.IsDefined(typeof(OpcoesMenu), opcoes);
 
                     if (string.IsNullOrEmpty(entrada) || !parseOk)
                     {
@@ -51,7 +49,7 @@ namespace LeituraAcompanhada.View
 
                     switch (opcoes)
                     {
-                        case Opcoes.InserirLivro:
+                        case OpcoesMenu.InserirLivro:
                             Console.Clear();
 
                             //Recebe os dados do usuario
@@ -64,13 +62,13 @@ namespace LeituraAcompanhada.View
 
                             break;
 
-                        case Opcoes.InserirLeitura:
+                        case OpcoesMenu.InserirLeitura:
                             Console.Clear();
                             InserirLeituraView.InserirLeitura();
 
                             break;
 
-                        case Opcoes.ListaLivros:
+                        case OpcoesMenu.ListaLivros:
                             Console.Clear();
                             ExibirLivrosView.ExibirLivros();
                             Console.WriteLine("\nAperte qualquer tecla para voltar...");
@@ -78,17 +76,30 @@ namespace LeituraAcompanhada.View
 
                             break;
 
-                        case Opcoes.ListaLeitura:
+                        case OpcoesMenu.HistoricoLeituras:
                             Console.Clear();
 
                             ExibirLeiturasView.ExibirLeituras();
 
                             break;
 
-                        case Opcoes.AtualizarStatus:
+                        case OpcoesMenu.AtualizarStatus:
                             Console.Clear();
                             AtualizarStatusView.AtualizarStatus();
 
+
+                            break;
+
+                        case OpcoesMenu.FiltroDeBusca:
+                            Console.Clear();
+
+                            FiltroView.Filtro();
+
+
+                            break;
+
+                        case OpcoesMenu.Sair:
+                            Console.Clear();
 
                             break;
 

@@ -27,5 +27,14 @@
             Id = id;
             Leituras = leituras ?? new List<Leitura>();
         }
+
+        public override string ToString()
+        {
+            return Titulo 
+                + "\n"
+                + Autor
+                + "\n"
+                + Id;
+        }
     }
 }
