@@ -1,5 +1,4 @@
 ﻿using LeituraAcompanhada.Entities;
-using LeituraAcompanhada.Entities.Enums;
 using System.Text.Json;
 
 namespace LeituraAcompanhada.Repositories

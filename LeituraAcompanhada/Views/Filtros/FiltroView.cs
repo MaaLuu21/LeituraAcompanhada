@@ -68,7 +68,7 @@ namespace LeituraAcompanhada.View.Filtros
 
                 case OpcoesFiltro.Genero:
                     //le o titulo do usuario
-                    string genero = EntradaUtils.LerString("Insira o autor: ");
+                    string genero = EntradaUtils.LerString("Insira o gênero: ");
                     //livroFiltro recebe o titulo que o usuario inseriu
                     livroFiltro.Genero = genero;
                     //livrosFiltrados recebe metodo de filtragem passando como argumento o livro que o usuario digitou

@@ -78,7 +78,6 @@ namespace LeituraAcompanhada.View
 
                         case OpcoesMenu.HistoricoLeituras:
                             Console.Clear();
-
                             ExibirLeiturasView.ExibirLeituras();
 
                             break;
@@ -109,7 +108,6 @@ namespace LeituraAcompanhada.View
             catch (DomainException e)
             {
                 ConsoleUtils.MostrarErro(e.Message);
-
             }
             catch (Exception e)
             {

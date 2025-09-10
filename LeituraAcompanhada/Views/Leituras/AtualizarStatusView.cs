@@ -2,7 +2,6 @@
 using LeituraAcompanhada.Entities.Enums;
 using LeituraAcompanhada.Repositories;
 using LeituraAcompanhada.Services;
-using LeituraAcompanhada.View.Livros;
 using LeituraAcompanhada.View.Utils;
 
 namespace LeituraAcompanhada.View.Leituras
@@ -23,11 +22,6 @@ namespace LeituraAcompanhada.View.Leituras
                 return false;
             }
 
-            if (livroId == null)
-            {
-                ConsoleUtils.MostrarErro("Entrada Invalida");
-                return false;
-            }
             var livros = LivroRepository.Carregar();
             var livro = livros.FirstOrDefault(l => l.Id == livroId);
             if (livro == null)
@@ -46,11 +40,6 @@ namespace LeituraAcompanhada.View.Leituras
                 return false;
             }
 
-            if (leituraId == null)
-            {
-                ConsoleUtils.MostrarErro("Entrada inválida");
-                return false;
-            }
 
             var leitura = livro.Leituras.FirstOrDefault(le => le.Id == leituraId);
             if (leitura == null)
@@ -73,18 +62,7 @@ namespace LeituraAcompanhada.View.Leituras
 
             string mensagem = LeituraService.AtualizarStatus(livroId, leituraId, novoStatus, dataTermino);
 
-            //Mostra se foi adicionado com sucesso ou não
-
-            //dar uma melhorada aqui!!!!!!!!!!!!
-            //!!!!!!!!
-            if (mensagem.Contains("sucesso", StringComparison.OrdinalIgnoreCase))
-            {
-                ConsoleUtils.MostrarSucesso(mensagem);
-            }
-            else
-            {
-                ConsoleUtils.MostrarErro(mensagem);
-            }
+            ConsoleUtils.MostrarSucesso(mensagem);
 
             return true;
 

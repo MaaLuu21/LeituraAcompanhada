@@ -13,14 +13,22 @@ namespace LeituraAcompanhada.View.Leituras
             ExibirLivrosView.ExibirLivros();
 
             Console.Write("\n\nInsira o ID do livro que deseja acessar as leituras: ");
+            //checa se é um inteiro
             if (!int.TryParse(Console.ReadLine(), out int livroId))
             {
                 ConsoleUtils.MostrarErro("Entrada inválida");
                 return false;
             }
 
-
+            //encontra o id
             var livro = livros.Find(l => l.Id == livroId);
+
+            //se o id não for encontrado ele retorna mensasgem de erro e retorna
+            if (livro == null)
+            {
+                ConsoleUtils.MostrarErro("O ID não foi encontrado!");
+                return false;
+            }
 
             var leituras = livro.Leituras.ToList();
 
@@ -37,7 +45,6 @@ namespace LeituraAcompanhada.View.Leituras
             }
             Console.WriteLine("\nAperte qualquer tecla para voltar...");
             Console.ReadKey();
-
 
             return true;
         }
