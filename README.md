@@ -57,5 +57,31 @@ O projeto combina conceitos de Programação Orientada a Objetos e persistência
   <img src="Assets/FiltroDeBusca.gif" alt="Filtro de Busca" width="550"/>
 </div>
 
+
+### ⚙️ **Como Executar o Projeto**
+
+- .NET SDK (versão 8.0 ou superior).
+- Um editor de código como Visual Studio Code ou Visual Studio.
+
+#### 💻 Clonando o repositório
+```bash
+git clone https://github.com/MaaLuu21/LeituraAcompanhada.git
+```
+
+#### 📂 Acesse o diretório do projeto
+```bash
+cd LeituraAcompanhada/LeituraAcompanhada
+```
+
+#### 🧰 Restaure as dependências e compile
+```bash
+dotnet restore
+dotnet build
+```
+#### ▶️ Executando
+```bash
+dotnet run
+```
+
 ## 🔒 Validação
 - O sistema realiza verificações para garantir a integridade dos dados inseridos, impedindo campos vazios, datas inválidas, status incorretos e salvamento de informações inconsistentes no JSON.
